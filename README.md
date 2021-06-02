@@ -4,6 +4,10 @@
 
 https://frontend-rest-vercel.vercel.app/ 
 
+#### frontend code:
+
+https://github.com/lenariem/frontend-rest-vercel
+
 ### Technologies used: 
 * React JS (Redux, Context);
 * JavaScript;
