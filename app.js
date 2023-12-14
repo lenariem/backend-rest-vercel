@@ -9,12 +9,15 @@ const indexRouter = require('./routes/index');
 const menuRouter = require('./routes/menu');
 const orderRouter = require('./routes/order');
 
-/** OUR MIDDLEWARE */
+/** MIDDLEWARE */
 const env = require('./config/config');
 const cors = require('cors');
 
 /** INIT THE SERVER */
 const app = express();
+
+/* CORS */
+app.use(cors());
 
 /** LOGS */
 app.use(logger('dev'));
@@ -39,16 +42,6 @@ mongoose.connection.on('open', () => {
 /** REQUEST PARSERS */
 app.use(express.json()); // parser for JSON data => req.body
 app.use(express.urlencoded({ extended: false }));
-
-
-/* let frontendOrigin = 'https://frontend-rest-react.herokuapp.com/'
-app.use(
-  cors({
-    origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
-    credentials: true, // allow cookies from other origins
-  })
-); */
-
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
